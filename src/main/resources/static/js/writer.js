@@ -337,7 +337,7 @@ Ext.onReady(function() {
         proxy: {
             type: 'ajax',
             api: {
-                read: 'app.php/users/view',
+                read: '/view',
                 create: 'app.php/users/create',
                 update: 'app.php/users/update',
                 destroy: 'app.php/users/destroy'
