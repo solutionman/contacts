@@ -9,9 +9,4 @@ public class Controller {
     public String index() {
         return "index.html";
     }
-
-    @GetMapping("/store")
-    public String store() {
-        return "contacts.html";
-    }
 }
