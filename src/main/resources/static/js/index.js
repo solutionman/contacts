@@ -17,18 +17,19 @@ Ext.define('Writer.Form', {
                 labelAlign: 'right'
             },
             items: [{
-                fieldLabel: 'Email',
-                name: 'email',
+                fieldLabel: 'Name',
+                name: 'name',
                 allowBlank: false,
-                vtype: 'email'
             }, {
-                fieldLabel: 'First',
-                name: 'first',
+                fieldLabel: 'Family Name',
+                name: 'family',
                 allowBlank: false
             }, {
-                fieldLabel: 'Last',
+                fieldLabel: 'Phone Number',
                 name: 'last',
-                allowBlank: false
+                allowBlank: false,
+                placeholder: '+7 (xxx) xxx-xx-xx',
+                inputMask: '+7 (999) 999-99-99'
             }],
             dockedItems: [{
                 xtype: 'toolbar',
@@ -192,26 +193,26 @@ Ext.define('Writer.Grid', {
                     return Ext.isNumber(value) ? value : '&nbsp;';
                 }
             }, {
-                header: 'Email',
+                header: 'Name',
                 flex: 1,
                 sortable: true,
-                dataIndex: 'email',
+                dataIndex: 'name',
                 field: {
                     type: 'textfield'
                 }
             }, {
-                header: 'First',
+                header: 'Family name',
                 width: 100,
                 sortable: true,
-                dataIndex: 'first',
+                dataIndex: 'family',
                 field: {
                     type: 'textfield'
                 }
             }, {
-                header: 'Last',
+                header: 'Phone',
                 width: 100,
                 sortable: true,
-                dataIndex: 'last',
+                dataIndex: 'phone',
                 field: {
                     type: 'textfield'
                 }
@@ -240,9 +241,9 @@ Ext.define('Writer.Grid', {
     onAddClick: function() {
         // eslint-disable-next-line no-undef
         var rec = new Writer.Person({
-                first: '',
-                last: '',
-                email: ''
+                name: '',
+                family: '',
+                phone: ''
             }),
             edit = this.findPlugin('cellediting');
 
@@ -263,15 +264,15 @@ Ext.define('Writer.Person', {
         useNull: true
     }, 'email', 'first', 'last'],
     validators: {
-        email: {
+        name: {
             type: 'length',
             min: 1
         },
-        first: {
+        family: {
             type: 'length',
             min: 1
         },
-        last: {
+        phone: {
             type: 'length',
             min: 1
         }

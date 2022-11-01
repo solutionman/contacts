@@ -3,9 +3,7 @@ package com.phone.contacts;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
@@ -16,10 +14,12 @@ public class RestController {
     }
 
     @GetMapping("/view")
-    public List<Contact> view() {
-        List<Contact> contacts = new ArrayList<>();
-        Contact contact = new Contact(1L, "mail@mail.com", "asdf", "dasd");
-        contacts.add(contact);
-        return contacts;
+    public List<Person> view() {
+        List<Person> people = new ArrayList<>();
+        Person person = new Person(1L, "Ivan", "Ivanov", "+7-913-747-25-31");
+        people.add(person);
+        people.add(new Person(2L, "Petr", "Petrov", "+7-913-255-25-52"));
+        people.add(new Person(3L, "Kolya", "Kolyanov", "+7-913-255-55-33"));
+        return people;
     }
 }

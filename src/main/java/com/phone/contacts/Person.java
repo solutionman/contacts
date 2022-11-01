@@ -10,9 +10,9 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Contact {
+public class Person {
     private Long id;
-    private String email;
-    private String first;
-    private String last;
+    private String name;
+    private String family;
+    private String phone;
 }
