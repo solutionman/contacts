@@ -1,7 +1,7 @@
 
 systemctl start postgresql
 
-gradle build
+gradle clean build
 
 java -jar build/libs/contacts-0.0.1-SNAPSHOT.jar
 
