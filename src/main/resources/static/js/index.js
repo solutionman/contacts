@@ -26,7 +26,7 @@ Ext.define('Writer.Form', {
                 allowBlank: false
             }, {
                 fieldLabel: 'Phone Number',
-                name: 'last',
+                name: 'phone',
                 allowBlank: false,
                 placeholder: '+7 (xxx) xxx-xx-xx',
                 inputMask: '+7 (999) 999-99-99'
@@ -262,7 +262,7 @@ Ext.define('Writer.Person', {
         name: 'id',
         type: 'int',
         useNull: true
-    }, 'email', 'first', 'last'],
+    }, 'email', 'first', 'phone'],
     validators: {
         name: {
             type: 'length',
@@ -339,7 +339,7 @@ Ext.onReady(function() {
             type: 'ajax',
             api: {
                 read: '/view',
-                create: 'app.php/users/create',
+                create: '/create',
                 update: 'app.php/users/update',
                 destroy: 'app.php/users/destroy'
             },

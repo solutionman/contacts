@@ -1,9 +1,12 @@
 package com.phone.contacts;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
@@ -21,5 +24,15 @@ public class RestController {
         people.add(new Person(2L, "Petr", "Petrov", "+7-913-255-25-52"));
         people.add(new Person(3L, "Kolya", "Kolyanov", "+7-913-255-55-33"));
         return people;
+    }
+
+    @PostMapping("/create")
+    public Map<String, String> create(Person person) {
+        String debug = "";
+        // TODO save Person
+//        return new Person(4L, "asdf","asdf","+7 (913) 255-55-33");
+        Map<String, String> result = new HashMap<>();
+        result.put("message", "created");
+        return result;
     }
 }
