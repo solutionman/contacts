@@ -66,4 +66,15 @@ public class RestController {
         result.put("message", "updated");
         return result;
     }
+
+    @PostMapping("/destroy")
+    public Map<String, String> destroy(@RequestBody Map<String, Object> data) {
+        Map<String, Object> persons = (Map<String, Object>) data.get("data");
+        Long personId = Long.parseLong(persons.get("id").toString());
+        Person person = personRepository.findById(personId);
+        personRepository.delete(person);
+        Map<String, String> result = new HashMap<>();
+        result.put("message", "deleted");
+        return result;
+    }
 }

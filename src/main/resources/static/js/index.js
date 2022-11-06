@@ -341,7 +341,7 @@ Ext.onReady(function() {
                 read: '/view',
                 create: '/create',
                 update: '/update',
-                destroy: 'app.php/users/destroy'
+                destroy: '/destroy'
             },
             reader: {
                 type: 'json',
