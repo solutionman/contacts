@@ -340,7 +340,7 @@ Ext.onReady(function() {
             api: {
                 read: '/view',
                 create: '/create',
-                update: 'app.php/users/update',
+                update: '/update',
                 destroy: 'app.php/users/destroy'
             },
             reader: {

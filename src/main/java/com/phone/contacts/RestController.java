@@ -46,4 +46,24 @@ public class RestController {
         result.put("message", "created");
         return result;
     }
+
+    @PostMapping("/update")
+    public Map<String, String> update(@RequestBody Map<String, Object> data) {
+        Map<String, Object> persons = (Map<String, Object>) data.get("data");
+        Long personId = Long.parseLong(persons.get("id").toString());
+        Person person = personRepository.findById(personId);
+        if (persons.containsKey("name")) {
+            person.setName(persons.get("name").toString());
+        }
+        if (persons.containsKey("phone")) {
+            person.setPhone(persons.get("phone").toString());
+        }
+        if (persons.containsKey("family")) {
+            person.setFamily(persons.get("family").toString());
+        }
+        personRepository.save(person);
+        Map<String, String> result = new HashMap<>();
+        result.put("message", "updated");
+        return result;
+    }
 }
