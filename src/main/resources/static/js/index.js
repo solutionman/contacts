@@ -116,8 +116,16 @@ Ext.define('Writer.Grid', {
             iconCls: 'icon-grid',
             frame: true,
             plugins: {
-                cellediting: true
+                cellediting: true,
+                rowexpander: {
+                    rowBodyTpl: new Ext.XTemplate( '<p>+7 (333) 333-33-33</p>' )
+                }
             },
+            // itemConfig: {
+            //     body: {
+            //         tpl: '<img height="100" src="http://www.sencha.com/assets/images/sencha-avatar-64x64.png"/>'
+            //     }
+            // },
             dockedItems: [{
                 xtype: 'toolbar',
                 items: [{
@@ -370,8 +378,9 @@ Ext.onReady(function() {
                 if (operation.action === 'destroy') {
                     main.child('#form').setActiveRecord(null);
                 }
-
-                Ext.example.msg(operation.action, operation.getResultSet().message);
+                console.log(operation.action);
+                console.log(operation.getResultSet().message);
+                // Ext.example.msg(operation.action, operation.getResultSet().message);
             }
         }
     });

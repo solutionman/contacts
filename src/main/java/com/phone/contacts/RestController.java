@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,9 +12,11 @@ import java.util.Map;
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
     private final PersonRepository personRepository;
+    private final PhoneRepository phoneRepository;
 
-    public RestController(PersonRepository personRepository) {
+    public RestController(PersonRepository personRepository, PhoneRepository phoneRepository) {
         this.personRepository = personRepository;
+        this.phoneRepository = phoneRepository;
     }
 
     @GetMapping("/reset")
@@ -35,7 +38,6 @@ public class RestController {
                 Person person = new Person();
                 person.setName(persons.get("name").toString());
                 person.setFamily(persons.get("family").toString());
-                person.setPhone(persons.get("phone").toString());
                 personRepository.save(person);
             }
         } catch (Exception e) {
