@@ -270,7 +270,7 @@ Ext.define('Writer.Person', {
         name: 'id',
         type: 'int',
         useNull: true
-    }, 'email', 'first', 'phone'],
+    }, 'name', 'family', 'phone'],
     validators: {
         name: {
             type: 'length',
@@ -380,7 +380,7 @@ Ext.onReady(function() {
                 }
                 console.log(operation.action);
                 console.log(operation.getResultSet().message);
-                // Ext.example.msg(operation.action, operation.getResultSet().message);
+                Ext.Msg.alert(operation.action, operation.getResultSet().message);
             }
         }
     });
